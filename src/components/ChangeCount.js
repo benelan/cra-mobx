@@ -1,29 +1,17 @@
-import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
+import React from "react";
+import { observer } from "mobx-react";
+import { useStores } from '../hooks/use-stores'
 
-const ChangeCount = inject("DataStore")(
-    observer(
-        class ChangeCount extends Component {
-            inc = () => {
-                this.props.DataStore.increment()
-            }
-            res = () => {
-                this.props.DataStore.reset()
-            }
-            dec = () => {
-                this.props.DataStore.decrement()
-            }
-            render() {
-                return (
-                    <div>
-                        <button onClick={() =>this.inc()}>Increment</button>
-                        <button onClick={() => this.res()}>Reset</button>
-                        <button onClick={() => this.dec()}>Decrement</button>
-                    </div>
-                );
-            }
-        }
-    )
+const ChangeCount = observer(() => {
+    const { counterStore } = useStores()
+    return (
+        <div>
+            <button onClick={() => counterStore.increment()}>Increment</button>
+            <button onClick={() => counterStore.reset()}>Reset</button>
+            <button onClick={() => counterStore.decrement()}>Decrement</button>
+        </div>
+    );
+}
 );
 
 export default ChangeCount;
