@@ -1,5 +1,5 @@
 # cra-mobx
-A boilerplate create-react-app with MobX. The master branch is [considered obsolete](https://mobx-react.js.org/recipes-inject). Check out the [context branch](https://github.com/benelan/cra-mobx/tree/context) for an up to date approach.
+A boilerplate create-react-app with MobX.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
