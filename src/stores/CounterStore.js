@@ -1,6 +1,6 @@
 import { action, observable, decorate } from "mobx"
 
-class DataStore {
+export class CounterStore {
     counter = 0;
 
     increment() {
@@ -14,11 +14,9 @@ class DataStore {
     }
 }
 
-decorate(DataStore, {
+decorate(CounterStore, {
     counter: observable,
     increment: action,
     decrement: action,
     reset: action
 })
-
-export default new DataStore()

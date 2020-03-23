@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
+import { observer} from "mobx-react";
+import storesContext from '../contexts/storesContext'
 
-const ShowCount = inject("DataStore")(
+const ShowCount = (
     observer(
         class ShowCount extends Component {
+            static contextType = storesContext
             render() {
+                const store = this.context
                 return (
-                    <div>{this.props.DataStore.counter}</div>
+                    <div>{store.counter}</div>
                 );
             }
         }

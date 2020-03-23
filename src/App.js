@@ -3,13 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import ChangeCount from './components/ChangeCount'
 import ShowCount from './components/ShowCount';
+import storesContext from './contexts/storesContext'
+import { CounterStore } from './stores/CounterStore';
 
 function App() {
+  const counterStore = new CounterStore();
   return (
     <div className="App">
       <header className="App-header">
-        <ShowCount />
-        <ChangeCount />
+        <storesContext.Provider value={counterStore}>
+          <ShowCount />
+          <ChangeCount />
+        </storesContext.Provider>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.

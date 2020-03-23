@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
+import { observer } from "mobx-react";
+import storesContext from '../contexts/storesContext'
 
-const ChangeCount = inject("DataStore")(
+const ChangeCount = (
     observer(
         class ChangeCount extends Component {
-            inc = () => {
-                this.props.DataStore.increment()
+            static contextType = storesContext
+
+            componentDidMount() {
+                const store = this.context
+                console.log(store.counter)
             }
-            res = () => {
-                this.props.DataStore.reset()
-            }
-            dec = () => {
-                this.props.DataStore.decrement()
-            }
+
             render() {
+                const store = this.context
                 return (
                     <div>
-                        <button onClick={() =>this.inc()}>Increment</button>
-                        <button onClick={() => this.res()}>Reset</button>
-                        <button onClick={() => this.dec()}>Decrement</button>
+                        <button onClick={() => store.increment()}>Increment</button>
+                        <button onClick={() => store.reset()}>Reset</button>
+                        <button onClick={() => store.decrement()}>Decrement</button>
                     </div>
                 );
             }
