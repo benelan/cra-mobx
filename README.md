@@ -1,3 +1,7 @@
+# cra-mobx
+A boilerplate create-react-app with MobX. The master branch is [considered obsolete](https://mobx-react.js.org/recipes-inject). Check out the [context branch](https://github.com/benelan/cra-mobx/tree/context) for an up to date approach.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,5 +70,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# cra-mobx
-A boilerplate create-react-app with MobX
