@@ -1,16 +1,13 @@
-import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
+import React from "react";
+import { observer } from "mobx-react";
+import { useStores } from '../hooks/use-stores'
 
-const ShowCount = inject("DataStore")(
-    observer(
-        class ShowCount extends Component {
-            render() {
-                return (
-                    <div>{this.props.DataStore.counter}</div>
-                );
-            }
-        }
-    )
+const ShowCount = observer(() => {
+    const { counterStore } = useStores()
+    return (
+        <div>{counterStore.counter}</div>
+    );
+}
 );
 
 export default ShowCount;
